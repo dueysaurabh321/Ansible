@@ -1,0 +1,35 @@
+ansible-galaxy init demor
+
+# roles/demor/tasks/main.yml
+- name: copy demor file
+  template:
+    src: demor.j2
+    dest: /etc/demor
+    owner: root
+    group: root
+    mode: 0444
+
+# roles/demor/templates/demor.j2
+
+Welcome to {{ ansible_hostname }}
+  
+This filel was created on {{ ansible_date_time.date }}
+Go away if you have no busines being here
+
+Contact {{ system_manager }} if anything is wrong
+
+# roles/demor/defauls/main.yml
+system_manager: admin@golilnuxcloud.com
+
+Create a playbook outside of roles directory
+
+# demoor-role.yml
+---
+- name: use demor role in playbook
+  hosts: webservers
+  user: ansible
+  become: true
+
+  roles:
+  - role: demor
+    system_managere: admin@golinuxcloud.com
