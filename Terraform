@@ -1,0 +1,20 @@
+creds.tf
+
+provider "aws" {
+  access_key = "ASIAQXAQ6GYGHOSV7MFL"
+  secret_key = "k6BqVjfQMB1JVUEFCnRefn/uL+Il2V7pp8fpMa1U"
+  token = "FwoGZXIvYXdzELb//////////wEaDMDP8RH21zdKVJXB6CK3AedHS728G/JxcWlwSnZ5T7G7HWXWUhQi+e9exCmrzt3NjJ+3GgdliQOqXzBVfFtIYZL/deIAXsh2ZzbJurRHA8LDcZVFgvBfoTKjq/QrRrq0ZIwQLs7SFx6f8v5TK4EPJneTAz3HZ/18pe/cHzDa9SUkCCzM4IKr3/Cb+P1SIncvxDrUj4XBo3YTO1uHXvZfzKdtEBgl1ALj9hHH8twcrrsT4tWm3LPveOAP7tOk1JW/OorPsq2DzCjh5PCUBjItF23m/a66kwYT5RjBmoMDWLcec0VGnpg6FJnS87X1OOG1RA+zMLGBqipX4WuR"
+  region = "us-east-1"
+}
+
+main.tf
+
+resource "aws_s3_bucket" "b" {
+  bucket = "my-test-bucket890"
+  acl  = "private"
+
+  tags = {
+    Name = "mytestbkcet"
+    Environment = "dev"
+  }
+}
