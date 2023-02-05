@@ -23,7 +23,7 @@ system_manager: admin@golilnuxcloud.com
 
 Create a playbook outside of roles directory
 
-# demoor-role.yml
+# demor-role.yml
 ---
 - name: use demor role in playbook
   hosts: webservers
